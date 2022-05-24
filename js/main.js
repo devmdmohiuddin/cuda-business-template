@@ -1,34 +1,35 @@
-$(document).ready(function(){
+$(document).ready(function () {
+  $(".js-services-section").waypoint(function (direction) {
+    if (direction == "down") {
+      $("nav").addClass("sticky");
+    } else {
+      $("nav").removeClass("sticky");
+    }
+  });
 
-    $(".js-services-section").waypoint(function(direction){
-        if(direction=="down"){
-            $("nav").addClass("sticky");
-        }
-        else{
-            $("nav").removeClass("sticky");
-        }
-    });
+  var mixer = mixitup(".container");
 
-    var mixer = mixitup('.container');
-
-    //scrolling for all browser support
-    $("a").on('click', function(event){
-        if(this.hash !== ""){
-            event.preventDefault();
-            var hash = this.hash;
-            $('html, body').animate({
-                scrollTop: $(hash).offset().top
-            }, 800, function(){
-                window.location.hash = hash;
-            });
+  //scrolling for all browser support
+  $("a").on("click", function (event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+      var hash = this.hash;
+      $("html, body").animate(
+        {
+          scrollTop: $(hash).offset().top,
+        },
+        800,
+        function () {
+          window.location.hash = hash;
         }
-    });
+      );
+    }
+  });
 });
 
-function openNav(){
-    document.getElementById('myNav').style.width = "100%";
+function openNav() {
+  document.getElementById("myNav").style.width = "100%";
 }
-function closeNav(){
-    document.getElementById('myNav').style.width = "0%";
-    
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
 }
